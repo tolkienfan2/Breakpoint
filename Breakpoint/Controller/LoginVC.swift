@@ -25,11 +25,10 @@ class LoginVC: UIViewController {
             AuthService.instance.loginUser(withEmail: email.text!, andPassword: password.text!, loginComplete: { (success, loginError) in
                 if success {
                     self.dismiss(animated: true, completion: nil)
-                } else {
-//                    print(String(describing: loginError?.localizedDescription))
-//                }
                 
-                AuthService.instance.registerUser(withEmail: self.email.text!, andPassword: self.password.text!, userCreationComplete: { (success, registrationError) in
+                } else {
+
+                    AuthService.instance.registerUser(withEmail: self.email.text!, andPassword: self.password.text!, userCreationComplete: { (success, registrationError) in
                     if success {
                         AuthService.instance.loginUser(withEmail: self.email.text!, andPassword: self.password.text!, loginComplete: { (success, nil) in
                             print("Successfully registered new user")
