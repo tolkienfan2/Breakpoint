@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G64-m8-cg4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -187,6 +187,9 @@
                                                 <state key="normal" title="LOGIN WITH FB">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="faceBookBtnPressed:" destination="G64-m8-cg4" eventType="touchUpInside" id="xb0-bx-vgW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOl-GV-r68" customClass="RoundedButton" customModule="Breakpoint" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="121.5" width="294" height="50.5"/>
@@ -195,6 +198,9 @@
                                                 <state key="normal" title="LOGIN WITH G+">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="gPlusBtnPressed:" destination="G64-m8-cg4" eventType="touchUpInside" id="HLE-m1-qyA"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-57-yn9">
                                                 <rect key="frame" x="0.0" y="182" width="294" height="51"/>
@@ -210,7 +216,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Mb0-SF-nSV" kind="show" id="smQ-Up-Ke3"/>
+                                                    <action selector="eMailBtnPressed:" destination="G64-m8-cg4" eventType="touchUpInside" id="abn-ss-RTV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -261,6 +267,9 @@
                                     <constraint firstAttribute="height" constant="30" id="w9E-fE-66G"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeBtnPressed:" destination="Mb0-SF-nSV" eventType="touchUpInside" id="oeE-qG-Hoi"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="64T-8t-Bzj">
                                 <rect key="frame" x="20" y="70" width="335" height="220"/>
@@ -279,9 +288,9 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qiJ-RT-7Dv" customClass="InsetTextField" customModule="Breakpoint" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password (min. 6 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qiJ-RT-7Dv" customClass="InsetTextField" customModule="Breakpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="111" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.8443944699" green="0.73021556789999997" blue="0.2758320554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -289,7 +298,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62W-Eq-beh" customClass="RoundedButton" customModule="Breakpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181" width="335" height="39"/>
@@ -298,7 +307,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="49e-Tb-3d3" kind="show" id="1Yk-Cf-wF0"/>
+                                            <action selector="signInBtnPressed:" destination="Mb0-SF-nSV" eventType="touchUpInside" id="rcw-aY-6vx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -318,6 +327,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hDf-rf-iRT"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="vaY-Qq-hf5" id="W4H-FX-pXS"/>
+                        <outlet property="password" destination="qiJ-RT-7Dv" id="PR1-ts-CTO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3o-1Z-u9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
