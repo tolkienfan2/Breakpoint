@@ -12,6 +12,7 @@ import Firebase
 let DB_BASE = Database.database().reference()
 
 class DataService {
+    
     static let instance = DataService()
     
     private var _REF_BASE = DB_BASE
