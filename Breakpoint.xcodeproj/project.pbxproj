@@ -22,6 +22,7 @@
 		45DC967B1F66E86A004D6712 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC967A1F66E86A004D6712 /* RoundedButton.swift */; };
 		45DC967D1F66EAB8004D6712 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC967C1F66EAB8004D6712 /* AuthService.swift */; };
 		45DC967F1F6722F3004D6712 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC967E1F6722F3004D6712 /* MeVC.swift */; };
+		45DC96831F672421004D6712 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC96821F672421004D6712 /* PostVC.swift */; };
 		59546D2651187D8C86F985B0 /* Pods_Breakpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F483CCFDB9D85D1B819605 /* Pods_Breakpoint.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		45DC967A1F66E86A004D6712 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		45DC967C1F66EAB8004D6712 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		45DC967E1F6722F3004D6712 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		45DC96821F672421004D6712 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		54F483CCFDB9D85D1B819605 /* Pods_Breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C68BF070DAF9BBE3087DE3 /* Pods-Breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breakpoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breakpoint/Pods-Breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				45DC96721F66DD9E004D6712 /* AuthVC.swift */,
 				45DC96741F66DDB0004D6712 /* LoginVC.swift */,
 				45DC967E1F6722F3004D6712 /* MeVC.swift */,
+				45DC96821F672421004D6712 /* PostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				45DC96561F6615EB004D6712 /* AppDelegate.swift in Sources */,
 				45DC967B1F66E86A004D6712 /* RoundedButton.swift in Sources */,
 				45DC96791F66E4F9004D6712 /* ShadowView.swift in Sources */,
+				45DC96831F672421004D6712 /* PostVC.swift in Sources */,
 				45DC96581F6615EB004D6712 /* FeedVC.swift in Sources */,
 				45DC967F1F6722F3004D6712 /* MeVC.swift in Sources */,
 				45DC967D1F66EAB8004D6712 /* AuthService.swift in Sources */,
