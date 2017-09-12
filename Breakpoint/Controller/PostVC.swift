@@ -20,7 +20,7 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
-        // Do any additional setup after loading the view.
+        sendBtn.bindToKeyboard()
     }
 
     @IBAction func closeBtnPressed(_ sender: Any) {

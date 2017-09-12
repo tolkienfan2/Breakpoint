@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
         <!--Feed-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FeedVC" customModule="Breakpoint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedVC" id="9pv-A4-QxB" customClass="FeedVC" customModule="Breakpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,13 +58,53 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.8443944699" green="0.73021556789999997" blue="0.2758320554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="s3I-PS-hya">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="100" id="s3I-PS-hya" customClass="FeedCell" customModule="Breakpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s3I-PS-hya" id="Ba2-bh-Jva">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="8Xr-cX-tr7">
+                                                    <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="SPj-nz-BZf"/>
+                                                        <constraint firstAttribute="height" constant="60" id="i0F-tX-uiD"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Message body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zuQ-9h-42e">
+                                                    <rect key="frame" x="76" y="36" width="291" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="NmB-f8-0kF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@breakpoint.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-CP-9kE">
+                                                    <rect key="frame" x="76" y="8" width="283" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zuQ-9h-42e" firstAttribute="top" secondItem="Xhs-CP-9kE" secondAttribute="bottom" constant="8" id="3lE-Co-5y0"/>
+                                                <constraint firstItem="Xhs-CP-9kE" firstAttribute="leading" secondItem="8Xr-cX-tr7" secondAttribute="trailing" constant="8" id="9An-au-hRo"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zuQ-9h-42e" secondAttribute="bottom" constant="4" id="FRZ-2x-Vp0"/>
+                                                <constraint firstItem="8Xr-cX-tr7" firstAttribute="top" secondItem="Ba2-bh-Jva" secondAttribute="top" constant="8" id="QfS-ZB-Hap"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xhs-CP-9kE" secondAttribute="trailing" constant="8" id="beK-GM-uiX"/>
+                                                <constraint firstItem="Xhs-CP-9kE" firstAttribute="top" secondItem="Ba2-bh-Jva" secondAttribute="topMargin" id="c4m-sp-0k1"/>
+                                                <constraint firstItem="zuQ-9h-42e" firstAttribute="leading" secondItem="8Xr-cX-tr7" secondAttribute="trailing" constant="8" id="ktR-ih-8bk"/>
+                                                <constraint firstAttribute="trailing" secondItem="zuQ-9h-42e" secondAttribute="trailing" constant="8" id="pfv-Fy-0zv"/>
+                                                <constraint firstItem="8Xr-cX-tr7" firstAttribute="leading" secondItem="Ba2-bh-Jva" secondAttribute="leading" constant="8" id="tdg-tF-sKe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageBody" destination="zuQ-9h-42e" id="UTH-5F-9VB"/>
+                                            <outlet property="userEmail" destination="Xhs-CP-9kE" id="lKj-HO-Ezy"/>
+                                            <outlet property="userImg" destination="8Xr-cX-tr7" id="2Qa-Pw-ZnL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -81,6 +122,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="feed-tabIcon" selectedImage="feed-tabIcon" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableView" destination="B0X-Pb-BIi" id="aWq-kb-fYD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +167,7 @@
                                     <constraint firstItem="leQ-FR-M8f" firstAttribute="centerX" secondItem="g6p-FR-Qj7" secondAttribute="centerX" id="yuN-YU-b9O"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aoa-rB-ec3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="aoa-rB-ec3">
                                 <rect key="frame" x="20" y="78" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="HoH-8E-acf"/>
