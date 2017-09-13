@@ -125,10 +125,11 @@ class DataService {
             guard let groupSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for group in groupSnapshot {
+                let members = group.childSnapshot(forPath: "members").value as! [String]
                 let title = group.childSnapshot(forPath: "title").value as! String
                 let description = group.childSnapshot(forPath: "description").value as! String
-                let noOfMembers = Int(group.childSnapshot(forPath: "members").childrenCount)
-                let group = Group(title: title, description: description, members: noOfMembers)
+                let key = group.key
+                let group = Group(title: title, description: description, members: members, key: key)
                 returnedGroups.append(group)
             }
             handler(returnedGroups)

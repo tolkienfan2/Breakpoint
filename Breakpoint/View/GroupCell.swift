@@ -14,16 +14,12 @@ class GroupCell: UITableViewCell {
     @IBOutlet weak var groupDescLbl: UILabel!
     @IBOutlet weak var groupMembershipLbl: UILabel!
     
-    func configureCell(groupTitle title: String, andDesc description: String, andMembership members: Int) {
+    var members: [String]!
+    
+    func configureCell(groupTitle title: String, andDesc description: String, andMembership members: [String]) {
         groupTitleLbl.text = title
         groupDescLbl.text = description
-        groupMembershipLbl.text = "\(members) members here"
+        groupMembershipLbl.text = "\(members.count) members here"
+        self.members = members
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

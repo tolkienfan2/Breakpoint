@@ -12,7 +12,8 @@ class Group {
 
     private var _title: String
     private var _description: String
-    private var _noOfMembers: Int
+    private var _members: [String]
+    private var _key: String
     
     var title: String {
         return _title
@@ -22,13 +23,18 @@ class Group {
         return _description
     }
     
-    var noOfMembers: Int {
-        return _noOfMembers
+    var members: [String] {
+        return _members
     }
     
-    init(title: String, description: String, members: Int) {
+    var key: String {
+        return _key
+    }
+    
+    init(title: String, description: String, members: [String], key: String) {
         self._title = title
         self._description = description
-        self._noOfMembers = members
+        self._members = members
+        self._key = key
     }
 }
