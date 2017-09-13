@@ -12,6 +12,8 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Menlo.ttc">
+            <string>Menlo-Bold</string>
+            <string>Menlo-Italic</string>
             <string>Menlo-Regular</string>
         </array>
     </customFonts>
@@ -384,13 +386,49 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.8443944699" green="0.73021556789999997" blue="0.2758320554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="IsO-bl-cbb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="100" id="IsO-bl-cbb" customClass="GroupCell" customModule="Breakpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IsO-bl-cbb" id="xO4-uX-y1W">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0UU-mC-Jry">
+                                                    <rect key="frame" x="8" y="8" width="359" height="83.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofJ-LM-bep">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="25"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I8-yX-OIt">
+                                                            <rect key="frame" x="0.0" y="29" width="359" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Membership" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-A4-B18">
+                                                            <rect key="frame" x="0.0" y="58.5" width="359" height="25"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Italic" family="Menlo" pointSize="17"/>
+                                                            <color key="textColor" red="0.8443944699" green="0.73021556789999997" blue="0.2758320554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0UU-mC-Jry" firstAttribute="top" secondItem="xO4-uX-y1W" secondAttribute="top" constant="8" id="6zL-bV-9YV"/>
+                                                <constraint firstAttribute="bottom" secondItem="0UU-mC-Jry" secondAttribute="bottom" constant="8" id="xBr-Xr-Eqd"/>
+                                                <constraint firstItem="0UU-mC-Jry" firstAttribute="leading" secondItem="xO4-uX-y1W" secondAttribute="leading" constant="8" id="yDh-Pu-D4r"/>
+                                                <constraint firstAttribute="trailing" secondItem="0UU-mC-Jry" secondAttribute="trailing" constant="8" id="ylS-wW-UwS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="groupDescLbl" destination="9I8-yX-OIt" id="c0t-bS-dYw"/>
+                                            <outlet property="groupMembershipLbl" destination="dPX-A4-B18" id="lZj-OC-Yl8"/>
+                                            <outlet property="groupTitleLbl" destination="ofJ-LM-bep" id="bX6-QW-NVo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -404,6 +442,9 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Groups" image="groups-tabIcon" selectedImage="groups-tabIcon" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="tableView" destination="zCe-xq-dcR" id="Z6m-dz-Lqe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

@@ -116,4 +116,24 @@ class DataService {
         REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": ids])
         handler(true)
     }
+    
+    func getAllGroups(handler: @escaping (_ returnedGroups: [Group]) -> ()) {
+        
+        var returnedGroups = [Group]()
+        
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in
+            guard let groupSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for group in groupSnapshot {
+                let title = group.childSnapshot(forPath: "title").value as! String
+                let description = group.childSnapshot(forPath: "description").value as! String
+                let noOfMembers = Int(group.childSnapshot(forPath: "members").childrenCount)
+                let group = Group(title: title, description: description, members: noOfMembers)
+                returnedGroups.append(group)
+            }
+            handler(returnedGroups)
+        }
+    }
+    
+
 }
