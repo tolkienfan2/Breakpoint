@@ -590,6 +590,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTextField" destination="mDh-h3-4C9" id="XLk-pf-Y3l"/>
+                        <outlet property="doneBtn" destination="dQq-vT-r1a" id="fB4-lM-tgx"/>
                         <outlet property="emailSearchTextField" destination="oAT-J4-6Tp" id="di1-aW-P1S"/>
                         <outlet property="groupMembersLbl" destination="mFX-t8-xXX" id="bM4-Y7-aPc"/>
                         <outlet property="tableView" destination="ltc-ZN-7Kr" id="TpJ-h6-qpI"/>
