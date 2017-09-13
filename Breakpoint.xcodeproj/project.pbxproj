@@ -10,6 +10,8 @@
 		45596C461F67742500DBA81D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45596C451F67742500DBA81D /* Message.swift */; };
 		4594A59D1F6858A600D80D0B /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594A59C1F6858A600D80D0B /* CreateGroupVC.swift */; };
 		4594A59F1F685CD100D80D0B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594A59E1F685CD100D80D0B /* UserCell.swift */; };
+		4594A5A11F68C15500D80D0B /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594A5A01F68C15500D80D0B /* GroupCell.swift */; };
+		4594A5A31F68C25100D80D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594A5A21F68C25100D80D0B /* Group.swift */; };
 		45DC96561F6615EB004D6712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC96551F6615EB004D6712 /* AppDelegate.swift */; };
 		45DC96581F6615EB004D6712 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC96571F6615EB004D6712 /* FeedVC.swift */; };
 		45DC965A1F6615EB004D6712 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC96591F6615EB004D6712 /* GroupsVC.swift */; };
@@ -36,6 +38,8 @@
 		45596C451F67742500DBA81D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4594A59C1F6858A600D80D0B /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
 		4594A59E1F685CD100D80D0B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		4594A5A01F68C15500D80D0B /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		4594A5A21F68C25100D80D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		45DC96521F6615EB004D6712 /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DC96551F6615EB004D6712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DC96571F6615EB004D6712 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				45DC967A1F66E86A004D6712 /* RoundedButton.swift */,
 				45DC96861F676FB5004D6712 /* FeedCell.swift */,
 				4594A59E1F685CD100D80D0B /* UserCell.swift */,
+				4594A5A01F68C15500D80D0B /* GroupCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				45596C451F67742500DBA81D /* Message.swift */,
+				4594A5A21F68C25100D80D0B /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,9 +311,11 @@
 				45DC96561F6615EB004D6712 /* AppDelegate.swift in Sources */,
 				4594A59F1F685CD100D80D0B /* UserCell.swift in Sources */,
 				45DC967B1F66E86A004D6712 /* RoundedButton.swift in Sources */,
+				4594A5A31F68C25100D80D0B /* Group.swift in Sources */,
 				45DC96791F66E4F9004D6712 /* ShadowView.swift in Sources */,
 				45DC96831F672421004D6712 /* PostVC.swift in Sources */,
 				45DC96871F676FB5004D6712 /* FeedCell.swift in Sources */,
+				4594A5A11F68C15500D80D0B /* GroupCell.swift in Sources */,
 				4594A59D1F6858A600D80D0B /* CreateGroupVC.swift in Sources */,
 				45DC96581F6615EB004D6712 /* FeedVC.swift in Sources */,
 				45DC967F1F6722F3004D6712 /* MeVC.swift in Sources */,
