@@ -46,7 +46,6 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         DataService.instance.getUsername(forUID: message.senderId) { (returnedUsername) in
             cell.configureCell(image: image!, email: returnedUsername, message: message.message)
         }
-        cell.configureCell(image: image!, email: message.senderId, message: message.message)
         return cell
     }
 }

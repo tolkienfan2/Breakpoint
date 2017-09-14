@@ -54,11 +54,11 @@ class DataService {
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()) {
         
         if groupKey != nil {
-            // send to groups ref
+            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid, groupKey!: "groupKey"])
         } else {
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
-            sendComplete(true)
         }
+        sendComplete(true)
     }
     
     func getAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) {

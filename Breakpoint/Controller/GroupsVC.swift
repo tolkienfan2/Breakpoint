@@ -51,7 +51,10 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
         
         if members.contains((Auth.auth().currentUser?.uid)!) {
             print("You are a member of this group")
-        
+            guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupFeedVC") as? GroupFeedVC else { return }
+            groupFeedVC.group = groups[indexPath.row]
+            present(groupFeedVC, animated: true, completion: nil)
+            
         } else {
                     
         let popUp = UIAlertController(title: "Sorry!", message: "You are not a member of this group.", preferredStyle: .alert)
