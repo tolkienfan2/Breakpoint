@@ -35,16 +35,14 @@ class PostVC: UIViewController {
     @IBAction func sendBtnPressed(_ sender: Any) {
         if textField.text != nil && textField.text != "Say something here..." {
             sendBtn.isEnabled = false
-            DataService.instance.uploadPost(withMessage: textField.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil, sendComplete: { (isComplete) in
-                if isComplete {
+            DataService.instance.uploadPost(withMessage: textField.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil, sendComplete: { (complete) in
+                if complete {
+                    self.textField.text = ""
                     self.sendBtn.isEnabled = true
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    self.sendBtn.isEnabled = true
-                    print("There was an error")
                 }
             })
         }
+        dismiss(animated: true, completion: nil)
     }
 }
 

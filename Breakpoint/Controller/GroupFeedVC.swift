@@ -13,37 +13,62 @@ class GroupFeedVC: UIViewController {
 
     @IBOutlet weak var groupTitleLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postView: UIView!
+    @IBOutlet weak var postTextField: InsetTextField!
+    @IBOutlet weak var postBtn: UIButton!
     
-    var messages = [Message]()
-    var group: Group!
-    var groupKey: String!
+    var groupMessages = [Message]()
+    var group: Group?
+    var membersList = ""
+
+    func initData(forGroup group: Group) {
+        self.group = group
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupTitleLbl.text = group.title
-        groupKey = group.key
+        postTextField.delegate = self
+        postView.bindToKeyboard()
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DataService.instance.getAllFeedMessages { (returnedMessages) in
-            let returnedMessages = returnedMessages.reversed()
-            for message in returnedMessages {
-                if message.groupKey != nil {
-                   if message.groupKey == self.group.key {
-                        self.messages.append(message)
-                    }
-                }
-            }
-            if self.messages.count > 0 {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupTitleLbl.text = group!.title
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
+            DataService.instance.getAllMessagesFor(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
+                self.groupMessages = returnedGroupMessages.reversed()
                 self.tableView.reloadData()
-            }
+            })
         }
     }
     
-    @IBAction func newMessageBtnPressed(_ sender: Any) {
+    @IBAction func titleBtnPressed(_ sender: Any) {
+        DataService.instance.getEmailsFor(group: group!) { (returnedEmails) in
+            self.membersList = returnedEmails.joined(separator: ", ")
+        }
+
+        let popUp = UIAlertController(title: "Our members", message: self.membersList, preferredStyle: .alert)
+        let popUpAction = UIAlertAction(title: "OK", style: .cancel)
+        popUp.addAction(popUpAction)
+        present(popUp, animated: true, completion: nil)
+    }
+    
+    @IBAction func postBtnPressed(_ sender: Any) {
+        if postTextField.text != "" {
+            postTextField.isEnabled = false
+            postBtn.isEnabled = false
+ 
+            DataService.instance.uploadPost(withMessage: postTextField.text!, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: self.group?.key, sendComplete: { (complete) in
+                    if complete {
+                        self.postTextField.text = ""
+                        self.postBtn.isEnabled = true
+                        self.postTextField.isEnabled = true
+                        self.postTextField.placeholder = "Start typing..."
+                }
+            })
+        }
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -58,17 +83,23 @@ extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return groupMessages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupFeedCell") as? GroupFeedCell else { return UITableViewCell() }
         let image = UIImage(named: "defaultProfileImage")
-        let content = messages[indexPath.row].message
-        let senderId = messages[indexPath.row].senderId
+        let content = groupMessages[indexPath.row].message
+        let senderId = groupMessages[indexPath.row].senderId
         DataService.instance.getUsername(forUID: senderId) { (returnedUsername) in
         cell.configureCell(profileImage: image!, emailLbl: returnedUsername, contentLbl: content)
         }
         return cell
+    }
+}
+
+extension GroupFeedVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
     }
 }

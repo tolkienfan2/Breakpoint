@@ -30,10 +30,4 @@ class Message {
         self._message = message
         self._senderId = senderId
     }
-    
-    init(throughGroup groupKey: String, message: String, senderId: String) {
-        self._groupKey = groupKey
-        self._message = message
-        self._senderId = senderId
-    }
 }

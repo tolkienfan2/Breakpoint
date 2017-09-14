@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedVC: UIViewController {
 
@@ -20,8 +21,8 @@ class FeedVC: UIViewController {
         tableView.dataSource = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         DataService.instance.getAllFeedMessages { (returnedMessages) in
             self.messages = returnedMessages.reversed()
             self.tableView.reloadData()
