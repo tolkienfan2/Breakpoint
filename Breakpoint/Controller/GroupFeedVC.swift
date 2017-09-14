@@ -31,6 +31,9 @@ class GroupFeedVC: UIViewController {
         postView.bindToKeyboard()
         tableView.delegate = self
         tableView.dataSource = self
+        DataService.instance.getEmailsFor(group: group!) { (returnedEmails) in
+            self.membersList = returnedEmails.joined(separator: ", ")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,17 +41,18 @@ class GroupFeedVC: UIViewController {
         groupTitleLbl.text = group!.title
         DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
             DataService.instance.getAllMessagesFor(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
-                self.groupMessages = returnedGroupMessages.reversed()
+                self.groupMessages = returnedGroupMessages
                 self.tableView.reloadData()
+                
+                if self.groupMessages.count > 0 {
+                    let endIndex = IndexPath(row: self.groupMessages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
             })
         }
     }
     
     @IBAction func titleBtnPressed(_ sender: Any) {
-        DataService.instance.getEmailsFor(group: group!) { (returnedEmails) in
-            self.membersList = returnedEmails.joined(separator: ", ")
-        }
-
         let popUp = UIAlertController(title: "Our members", message: self.membersList, preferredStyle: .alert)
         let popUpAction = UIAlertAction(title: "OK", style: .cancel)
         popUp.addAction(popUpAction)
