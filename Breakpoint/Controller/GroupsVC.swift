@@ -53,7 +53,7 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
             print("You are a member of this group")
             guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupFeedVC") as? GroupFeedVC else { return }
             groupFeedVC.initData(forGroup: groups[indexPath.row])
-            present(groupFeedVC, animated: true, completion: nil)
+            presentDetail(groupFeedVC)
             
         } else {
                     
